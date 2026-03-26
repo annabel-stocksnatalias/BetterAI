@@ -1,4 +1,4 @@
-# Structure-Grounded Medical QA: RDF Retrieval and Claim-Level Verification for Faithful Answer Generation
+# Structure-Grounded Medical QA: RDF Retrieval and Claim-Level Verification for Faithful Answering
 
 ## Prerequisites
 
