@@ -1,0 +1,3 @@
+[submodule "stanza"]
+	path = stanza
+	url = git@github.com:stanfordnlp/stanza.git

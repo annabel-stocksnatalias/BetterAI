@@ -1,0 +1,103 @@
+[project]
+name = "betterai-project"
+version = "0.1.0"
+description = ""
+readme = "README.md"
+requires-python = ">=3.10,<3.11"
+dependencies = [
+  "networkx>=3.4.2",
+  "tqdm>=4.67.1",
+  "tqdm>=4.67.1",
+  "requests>=2.32.5",
+  "emoji>=2.15.0",
+  "google-api-python-client>=2.185.0",
+  "torch>=2.2.2",
+  "rdflib>=7.3.0",
+  "attrs>=25.4.0",
+  "ipykernel>=7.0.1",
+  "rdflib-hdt>=3.1",
+  "spacy-transformers>=1.3.9",
+  "transformers>=4.49.0",
+  "setuptools>=80.9.0",
+  "pip>=25.3",
+  "contractions>=0.1.73",
+  "spacy-experimental>=0.6.4",
+  "spacy>=3.7.5",
+  "numpy<2",
+  "spacy-lookups-data>=1.0.5",
+  "scikit-learn>=1.4.0",
+  "accelerate>=0.26.0",
+  "redis>=7.1.0",
+]
+
+[dependency-groups]
+dev = [
+    "black>=25.9.0",
+    "isort>=7.0.0",
+    "pytest>=8.4.2",
+    "ruff>=0.14.2",
+]
+
+[tool.uv]
+required-environments=["sys_platform == 'darwin' and platform_machine == 'x86_64'"]
+
+# [build-system]
+# requires = ["setuptools"]
+# build-backend = "setuptools.build_meta"
+
+############################
+# Code linting
+############################
+[tool.black]
+line-length = 100
+target-version = ['py313']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+skip = []
+
+[tool.ruff]
+target-version = "py313"
+exclude = ['__pycache__',]
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "UP",  # pyupgrade
+]
+ignore = [
+    "E501",  # line too long, handled by black
+    "UP045", # Use `X | None` for type annotations
+    "UP031", # Allow % symbol for formatting, aligns with django conventions
+    "UP007", # Allow Union type in addition to | operator
+]
+
+[tool.ruff.lint.pyupgrade]
+# Preserve types, even if a file imports `from __future__ import annotations`.
+keep-runtime-typing = true
+
+
+[tool.pytest.ini_options]
+testpaths = [
+  'tests'
+]
+
